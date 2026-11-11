@@ -1,0 +1,6 @@
+# Format: label|SSH target or LOCAL|remote collector script path
+
+# Replace usernames, IP addresses and paths with your own environment.
+
+VM-01|your_user@192.168.56.20|/home/your_user/infrawatch-collector/collect_metrics.sh
+VM-02|your_user@192.168.56.102|/home/your_user/infrawatch-collector/collect_metrics.sh

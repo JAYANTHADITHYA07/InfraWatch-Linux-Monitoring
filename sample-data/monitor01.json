@@ -1,0 +1,17 @@
+{
+  "hostname": "monitor01",
+  "os": "Rocky Linux 10 (SAMPLE DATA)",
+  "kernel": "6.x-sample",
+  "ips": "192.168.56.101",
+  "cpu_percent": 24.6,
+  "memory_percent": 38.2,
+  "disk_root_percent": 42,
+  "disk_var_percent": 42,
+  "load_1m": 0.31,
+  "uptime_days": 2.4,
+  "failed_services": 0,
+  "failed_service_names": "",
+  "status": "NORMAL",
+  "status_reason": "Sample preview data only — not a live reading",
+  "collected_at": "2026-11-03T00:00:00+05:30"
+}

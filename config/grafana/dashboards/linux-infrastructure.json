@@ -1,0 +1,27 @@
+{
+  "annotations": {"list": []},
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "id": null,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {"datasource":{"type":"prometheus","uid":"prometheus"},"fieldConfig":{"defaults":{"unit":"percent","min":0,"max":100,"thresholds":{"mode":"absolute","steps":[{"color":"green","value":null},{"color":"yellow","value":80},{"color":"red","value":90}]}},"overrides":[]},"gridPos":{"h":8,"w":12,"x":0,"y":0},"id":1,"options":{"legend":{"displayMode":"list","placement":"bottom"},"tooltip":{"mode":"single"}},"targets":[{"expr":"100 * (1 - avg by (instance) (rate(node_cpu_seconds_total{mode=\"idle\"}[5m])))","legendFormat":"{{instance}}","refId":"A"}],"title":"CPU utilization","type":"timeseries"},
+    {"datasource":{"type":"prometheus","uid":"prometheus"},"fieldConfig":{"defaults":{"unit":"percent","min":0,"max":100,"thresholds":{"mode":"absolute","steps":[{"color":"green","value":null},{"color":"yellow","value":80},{"color":"red","value":90}]}},"overrides":[]},"gridPos":{"h":8,"w":12,"x":12,"y":0},"id":2,"options":{"legend":{"displayMode":"list","placement":"bottom"},"tooltip":{"mode":"single"}},"targets":[{"expr":"100 * (1 - node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)","legendFormat":"{{instance}}","refId":"A"}],"title":"Memory utilization","type":"timeseries"},
+    {"datasource":{"type":"prometheus","uid":"prometheus"},"fieldConfig":{"defaults":{"unit":"percent","min":0,"max":100,"thresholds":{"mode":"absolute","steps":[{"color":"green","value":null},{"color":"yellow","value":85},{"color":"red","value":90}]}},"overrides":[]},"gridPos":{"h":8,"w":12,"x":0,"y":8},"id":3,"options":{"legend":{"displayMode":"list","placement":"bottom"},"tooltip":{"mode":"single"}},"targets":[{"expr":"100 * (1 - node_filesystem_avail_bytes{mountpoint=\"/\",fstype!~\"tmpfs|overlay\"} / node_filesystem_size_bytes{mountpoint=\"/\",fstype!~\"tmpfs|overlay\"})","legendFormat":"{{instance}}","refId":"A"}],"title":"Root filesystem usage","type":"timeseries"},
+    {"datasource":{"type":"prometheus","uid":"prometheus"},"fieldConfig":{"defaults":{"unit":"bytes/sec"},"overrides":[]},"gridPos":{"h":8,"w":12,"x":12,"y":8},"id":4,"options":{"legend":{"displayMode":"list","placement":"bottom"},"tooltip":{"mode":"multi"}},"targets":[{"expr":"rate(node_network_receive_bytes_total{device!~\"lo|veth.*|docker.*\"}[5m])","legendFormat":"RX {{instance}} {{device}}","refId":"A"},{"expr":"rate(node_network_transmit_bytes_total{device!~\"lo|veth.*|docker.*\"}[5m])","legendFormat":"TX {{instance}} {{device}}","refId":"B"}],"title":"Network throughput","type":"timeseries"},
+    {"datasource":{"type":"prometheus","uid":"prometheus"},"fieldConfig":{"defaults":{"unit":"short"},"overrides":[]},"gridPos":{"h":6,"w":12,"x":0,"y":16},"id":5,"options":{"reduceOptions":{"calcs":["lastNotNull"],"fields":"","values":false},"orientation":"auto","textMode":"auto","colorMode":"value","graphMode":"area","justifyMode":"auto"},"targets":[{"expr":"node_load1","legendFormat":"{{instance}}","refId":"A"}],"title":"1-minute load average","type":"stat"},
+    {"datasource":{"type":"prometheus","uid":"prometheus"},"fieldConfig":{"defaults":{"unit":"s"},"overrides":[]},"gridPos":{"h":6,"w":12,"x":12,"y":16},"id":6,"options":{"reduceOptions":{"calcs":["lastNotNull"],"fields":"","values":false},"orientation":"auto","textMode":"auto","colorMode":"value","graphMode":"area","justifyMode":"auto"},"targets":[{"expr":"node_time_seconds - node_boot_time_seconds","legendFormat":"{{instance}}","refId":"A"}],"title":"Uptime (seconds)","type":"stat"}
+  ],
+  "refresh": "30s",
+  "schemaVersion": 39,
+  "tags": ["linux", "infrastructure", "monitoring"],
+  "templating": {"list": []},
+  "time": {"from": "now-1h", "to": "now"},
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Linux Infrastructure Overview",
+  "uid": "linux-infra-overview",
+  "version": 1
+}

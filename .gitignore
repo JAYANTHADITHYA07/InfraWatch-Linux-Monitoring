@@ -1,0 +1,26 @@
+# Live monitoring data
+data/*.json
+!data/.gitkeep
+
+# Logs
+logs/
+*.log
+
+# Local host configuration
+config/hosts.conf
+
+# Temporary and backup files
+*.tmp
+*.temp
+*.bak
+*.backup
+*~
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa
+id_ed25519

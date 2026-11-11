@@ -1,0 +1,10 @@
+[Unit]
+Description=Run InfraWatch collection every minute
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=1min
+Unit=infra-collector.service
+
+[Install]
+WantedBy=timers.target

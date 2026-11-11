@@ -1,0 +1,21 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: prometheus
+    static_configs:
+      - targets:
+          - localhost:9090
+
+  - job_name: linux-servers
+    static_configs:
+      - targets:
+          - 192.168.56.20:9100
+        labels:
+          instance_name: VM-01
+
+      - targets:
+          - 192.168.56.102:9100
+        labels:
+          instance_name: VM-02

@@ -1,0 +1,11 @@
+[Unit]
+Description=InfraWatch Linux metrics collection
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=infrawatch
+Group=infrawatch
+WorkingDirectory=/opt/linux-infrastructure-monitor
+ExecStart=/opt/linux-infrastructure-monitor/scripts/collect_all.sh
